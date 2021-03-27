@@ -54,7 +54,7 @@
 				"pysen.client.connectionMode": {
 					"scope": "resource",
 					"type": "string",
-					"default": "tcp",
+					"default": "stdio",
 					"markdownDescription": "Controls the communication method to pysen-ls.",
 					"enum": [
 						"stdio",
