@@ -1,5 +1,7 @@
 # pysen-vscode
 
+![](https://github.com/bonprosoft/pysen-vscode/blob/master/assets/imgs/pysen-vscode.gif?raw=true)
+
 ## Install
 
 `pysen-ls` is required for the language server implementation.
