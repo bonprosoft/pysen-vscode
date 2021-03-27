@@ -1,0 +1,148 @@
+{
+	"name": "pysen-vscode",
+	"displayName": "pysen-vscode",
+	"description": "A VSCode extension for pysen",
+	"author": "Yuki Igarashi",
+	"license": "MIT",
+	"version": "0.0.1",
+	"publisher": "bonprosoft",
+	"bugs": {
+		"url": "https://github.com/bonprosoft/pysen-vscode/issues"
+	},
+	"homepage": "https://github.com/bonprosoft/pysen-vscode",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/bonprosoft/pysen-vscode.git"
+	},
+	"engines": {
+		"vscode": "^1.0.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onLanguage:python"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "pysen.reloadServerConfiguration",
+				"title": "Reload Server Configuration"
+			},
+			{
+				"command": "pysen.triggerLintDocument",
+				"title": "Lint Current Document"
+			},
+			{
+				"command": "pysen.triggerLintWorkspace",
+				"title": "Lint Entire Workspace"
+			},
+			{
+				"command": "pysen.triggerFormatDocument",
+				"title": "Format Current Document"
+			},
+			{
+				"command": "pysen.triggerFormatWorkspace",
+				"title": "Format Entire Workspace"
+			}
+		],
+		"configuration": {
+			"type": "object",
+			"title": "pysen",
+			"properties": {
+				"pysen.client.connectionMode": {
+					"scope": "resource",
+					"type": "string",
+					"default": "tcp",
+					"markdownDescription": "Controls the communication method to pysen-ls.",
+					"enum": [
+						"stdio",
+						"tcp"
+					],
+					"enumDescriptions": [
+						"Use stdio to communicate with pysen-ls.",
+						"Use tcp to connect pysen-ls. You need to launch pysen-ls."
+					]
+				},
+				"pysen.client.pythonPath": {
+					"scope": "resource",
+					"type": "string",
+					"default": null,
+					"description": "Specifies the python path to use pysen."
+				},
+				"pysen.client.tcpHost": {
+					"scope": "resource",
+					"type": "string",
+					"default": "127.0.0.1",
+					"description": "Specifies the host name to connect pysen-ls server. This setting only works with connectionMode is 'tcp'."
+				},
+				"pysen.client.tcpPort": {
+					"scope": "resource",
+					"type": "number",
+					"default": "3746",
+					"markdownDescription": "Specifies the port to connect pysen-ls server. This setting only works with connectionMode is 'tcp'."
+				},
+				"pysen.server.enableLintOnSave": {
+					"scope": "resource",
+					"type": "boolean",
+					"default": true,
+					"markdownDescription": "Triggers the lint task on save."
+				},
+				"pysen.server.enableCodeAction": {
+					"scope": "resource",
+					"type": "boolean",
+					"default": true,
+					"description": "Enable/disable code actions."
+				},
+				"pysen.server.lintTargets": {
+					"scope": "resource",
+					"type": "array",
+					"items": {
+						"type": "string"
+					},
+					"default": [
+						"lint"
+					],
+					"description": "Controls target names for pysen to invoke in the lint task."
+				},
+				"pysen.server.formatTargets": {
+					"scope": "resource",
+					"type": "array",
+					"items": {
+						"type": "string"
+					},
+					"default": [
+						"format",
+						"lint"
+					],
+					"description": "Controls target names for pysen to invoke in the format task."
+				}
+			}
+		}
+	},
+	"dependencies": {
+		"vscode-languageclient": "^7.0.0"
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile && npm run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.46.0",
+		"@types/glob": "^7.1.3",
+		"@types/mocha": "^8.0.4",
+		"@types/node": "^12.11.7",
+		"eslint": "^7.19.0",
+		"@typescript-eslint/eslint-plugin": "^4.14.1",
+		"@typescript-eslint/parser": "^4.14.1",
+		"glob": "^7.1.6",
+		"mocha": "^8.2.1",
+		"typescript": "^4.1.3",
+		"vscode-test": "^1.5.0"
+	}
+}
