@@ -68,9 +68,11 @@ export function activate(context: ExtensionContext) {
 			return;
 	}
 
+	const serverConfig = workspace.getConfiguration('pysen.server');
 	let clientOptions: LanguageClientOptions = {
 		documentSelector: [{ scheme: 'file', language: 'python' }],
 		outputChannelName: 'pysen LanguageServer',
+		initializationOptions: {'config': serverConfig},
 	};
 
 	client = new LanguageClient(
