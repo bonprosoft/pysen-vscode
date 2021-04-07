@@ -57,7 +57,7 @@ export function activate(context: ExtensionContext) {
 		case 'stdio':
 			const pythonPath = getPythonPath(config);
 			console.log(`use '${pythonPath}' for the python path`);
-			serverOptions = useLanguageServerOverStdio(getPythonPath(config));
+			serverOptions = useLanguageServerOverStdio(pythonPath);
 			break;
 		case 'tcp':
 			console.log(`use tcp`);
