@@ -4,7 +4,7 @@
 	"description": "A VSCode extension for pysen",
 	"author": "Yuki Igarashi",
 	"license": "MIT",
-	"version": "0.0.2",
+	"version": "0.1.0",
 	"publisher": "bonprosoft",
 	"bugs": {
 		"url": "https://github.com/bonprosoft/pysen-vscode/issues"
