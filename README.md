@@ -4,10 +4,10 @@
 
 ## Install
 
-`pysen-ls` is required for the language server implementation.
+`pysen-ls>=0.1.0` is required for the language server implementation.
 
 ```sh
-$ pip install pysen-ls
+$ pip install "pysen-ls>=0.1.0"
 ```
 
 ## Commands
