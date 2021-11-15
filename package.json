@@ -117,6 +117,17 @@
 						"lint"
 					],
 					"description": "Controls target names for pysen to invoke in the format task."
+				},
+				"pysen.trace.server": {
+					"scope": "window",
+					"type": "string",
+					"enum": [
+						"off",
+						"messages",
+						"verbose"
+					],
+					"default": "off",
+					"description": "Traces the communication between VSCode and the pysen language server."
 				}
 			}
 		}
