@@ -76,6 +76,7 @@ export function activate(context: ExtensionContext) {
 	};
 
 	client = new LanguageClient(
+		'pysen',
 		'pysen language server',
 		serverOptions,
 		clientOptions

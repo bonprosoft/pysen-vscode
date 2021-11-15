@@ -66,3 +66,9 @@ Controls target names for pysen to invoke in the format task.
 
 - Value: array of strings
 - Default: `["format", "lint"]`
+
+#### pysen.trace.server
+Traces the communication between VSCode and the pysen language server.
+
+- Value: string
+- Default: `"off"`
